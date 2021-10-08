@@ -1,7 +1,7 @@
 <template>
   <h1>{{ title }}</h1>
   <input type="text" ref="name">
-  <button @click="handleClick">Click Me</button>
+  <!-- <button @click="handleClick">Click Me</button> -->
   <Modal />
 </template>
 
