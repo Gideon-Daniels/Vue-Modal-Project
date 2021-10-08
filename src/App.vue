@@ -1,7 +1,7 @@
 <template>
   <h1>Welcome ...</h1>
   <!-- modal one -->
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <Modal theme="sale" @close="toggleModal">
       <!-- named slots -->
         <template v-slot:links>
@@ -13,26 +13,29 @@
         <p>Grab your ninja swag for half price</p>
         
     </Modal>
-  </div>
+  </teleport>
 <!-- modal two -->
-   <div v-if="showModalTwo">
+   <teleport to=".modals" v-if="showModalTwo">
     <Modal @close="toggleModalTwo">
         <!--slot  -->
         <h1>Sign up to the newsletter</h1>
-        <p>For updates and promo codes!</p>      
+        <p>For updates and promo codes!</p> 
+        <template v-slot:links>
+          <a href="#">Subscribe</a>
+        </template>     
     </Modal>
-  </div>
+  </teleport>
 
   <!-- modal three -->
-   <div v-if="showModalThree">
+   <teleport to=".modals" v-if="showModalThree">
     <Modal @close="toggleModalThree">
         <!--slot  -->
         <h1>Congrats ...</h1>
         <p>Thank you for building this Modal</p>      
     </Modal>
-  </div>
+  </teleport>
 
-  <p>Welcome ...</p>
+  <p>Open A Modale</p>
   <button @click.alt="toggleModal">open  (alt)</button>
   <button @click="toggleModalTwo"> open Modal Two</button>
   <button @click.ctrl="toggleModalThree"> Open Modal Three (ctrl)</button>
@@ -68,7 +71,7 @@ export default {
 </script>
 
 <style>
-#app {
+#app , .modals{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
